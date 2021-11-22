@@ -10,6 +10,7 @@ import win32api
 import time
 import socket
 import json
+import os
 
 from pynput.keyboard import Key, Controller
 from pprint import pp, pprint
@@ -79,18 +80,44 @@ def vol_setIndvMin():
     vol_setIndv(0)
 
 
-serverpage = "http://127.0.0.1/localvideosynchronizer/web/"
+########################## configuration file ##########################
+
+configPath = "config.json"
+
+# default configurations
+config = {
+    "id": 0,
+    "lastConnDate": "",
+    "serverpage": "http://192.168.0.101/localvideosynchronizer/web/"
+}
+
+def config_save():
+    with open(configPath, 'w') as outfile:
+        json.dump(config, outfile)
+        
+def config_load():
+    with open(configPath) as json_file:
+        global config
+        config_prev = json.load(json_file)
+
+        for k in config:
+            if not k in config_prev:
+                print(k+ " nao existe")
+                config_prev[k] = config[k]
+
+        config = config_prev
+
+# create config file if not exists
+if not os.path.isfile(configPath):
+    print("file not exist")
+    config_save()
+
+config_load()
+
+############################ server address ############################
+
 def s(page):
-    return serverpage+page
-
-class configClass():
-    id = 0
-    lastConnDate = ""
-    
-config = configClass()
-
-config.id = 1
-config.lastConnDate = "2021-11-20 15:52:21"
+    return config["serverpage"]+page
 
 ########################### commands handdler ##########################
 kb = Controller()
@@ -191,8 +218,8 @@ def exec_cmd(cmd):
 
 r = requests.get(url = s("firstConnection.php"), params = {
     "ip": ip.get(),
-    "id": config.id,
-    "lastConnDate": config.lastConnDate,
+    "id": config["id"],
+    "lastConnDate": config["lastConnDate"],
 })
 
 if r.status_code != 200:
@@ -205,13 +232,14 @@ except:
 
 
 # update received id and lastConnDate
-config.id = data['id']
-config.lastConnDate = data['date']
+config["id"] = data['id']
+config["lastConnDate"] = data['date']
+config_save()
 
 ############################### main loop ###############################
 
 while(True):
-    r2 = requests.get(url = s("getnewcmds.php"), params = {"id": config.id})
+    r2 = requests.get(url = s("getnewcmds.php"), params = {"id": config["id"]})
 
     if r2.status_code != 200:
         raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
