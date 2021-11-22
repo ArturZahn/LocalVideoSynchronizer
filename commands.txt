@@ -1,0 +1,31 @@
+1(url) opens url in browser
+
+2(act) 
+    act → string which each letter represent an action
+    actions: 
+        "p": play/pause
+        "f": toggle full screen
+        "b": return to begining
+        ">": go forward 5s
+        "<": go back 5s
+        "e": press ESC
+
+3(mode, val)
+    mode 1 → set global value (-96 < val < 0)
+    mode 2 → set global max
+    mode 3 → set global min
+    mode 4 → set global max (force)
+    mode 5 → set global min (force)
+    mode 6 → set individual value (0 < val < 1)
+    mode 7 → set individual max
+    mode 8 → set individual min
+
+4(act)
+    act → string which each letter represent an action
+    actions: 
+        "n": new browser instance
+        "f": close browser
+        "t": open new tab
+        "c": close tab
+        ">": go to next tab
+        "<": go to previous tab
