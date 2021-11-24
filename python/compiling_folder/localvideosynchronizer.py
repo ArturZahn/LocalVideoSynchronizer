@@ -152,14 +152,38 @@ def exec_cmd(cmd):
                 kt("k")
             elif(c == "f"):
                 kt("f")
-            elif(c == "b"):
-                kt("0")
             elif(c == ">"):
                 kt(Key.right)
             elif(c == "<"):
                 kt(Key.left)
             elif(c == "e"):
                 kt(Key.esc)
+            elif(c == "5"):
+                kt(Key.f5)
+            elif(c == "+"):
+                kt(Key.up)
+            elif(c == "-"):
+                kt(Key.down)
+            elif(c == "0"):
+                kt("0")
+            elif(c == "1"):
+                kt("1")
+            elif(c == "2"):
+                kt("2")
+            elif(c == "3"):
+                kt("3")
+            elif(c == "4"):
+                kt("4")
+            elif(c == "s"):
+                kt("5")
+            elif(c == "6"):
+                kt("6")
+            elif(c == "7"):
+                kt("7")
+            elif(c == "8"):
+                kt("8")
+            elif(c == "9"):
+                kt("9")
     elif numb == "3":
         mode = opt["mode"]
         if mode == "1":
