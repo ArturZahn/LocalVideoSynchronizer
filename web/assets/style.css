@@ -1,0 +1,25 @@
+/* .mb-1 {
+    margin-bottom: .25rem; 
+} */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sect {
+    padding: .5rem .25rem
+}
+
+.divis {
+    padding: .5rem 0
+}
+
+.sect :not(div){
+    margin: .15rem 0
+}
+
+input, select {
+    padding: .2rem .5rem;
+    border-radius: .4rem;
+    border: 1px solid #000
+}

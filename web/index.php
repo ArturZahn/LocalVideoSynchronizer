@@ -7,13 +7,18 @@
     <title>Document</title>
     <script src="./assets/js/jquery-3.6.0.min.js"></script>
     <script src="./assets/js/index.js"></script>
+    
+    <link rel="stylesheet" href="assets/style.css">
+    
 </head>
 <body>
-<div>
+    <div class="sect">
         <h2>Video:</h2>
-        <div>
-            <input id="vid_link" type="text" placeholder="insira um link">
-            <input id="vid_open" type="button" value="Abrir link">
+        <div class="divis">
+            <div>
+                <input id="vid_link" type="text" placeholder="insira um link">
+                <input id="vid_open" type="button" value="Abrir link">
+            </div>
             <div>
                 <select id="vid_pred">
                     <option value="">Selecione um predefinido</option>
@@ -31,9 +36,9 @@
             <input type="button" id="vid_esc" value="Esc">
         </div>
         <div>
-            <input type="button" id="vid_pbf" value="Esc + Pause + tela cheia + comeco">
+            <input type="button" id="vid_ekbf" value="Esc + Pause + tela cheia + comeco">
         </div>
-        <div>
+        <div class="divis">
             <div>Avançar video:</div>
             <input type="button" id="vid_back" value="-5s">
             <input type="button" id="vid_forward" value="+5s">
@@ -41,26 +46,28 @@
         </div>
     </div>
 
-    <div>
+    <div class="sect">
         <h2>Guias navegador:</h2>
         
         <div>
             <input type="button" id="vid_newchrome" value="Novo chrome">
             <input type="button" id="vid_altf4" value="Fechar programa">
         </div>
-        <div>
-            <input type="button" id="vid_newtab" value="Nova guia">
-            <input type="button" id="vid_closetab" value="Fechar guia">
-        </div>
-        <div>
-            <input type="button" id="vid_prevtab" value="Guia anterior">
-            <input type="button" id="vid_nexttab" value="Próxima guia">
+        <div class="divis">
+            <div>
+                <input type="button" id="vid_newtab" value="Nova guia">
+                <input type="button" id="vid_closetab" value="Fechar guia">
+            </div>
+            <div>
+                <input type="button" id="vid_prevtab" value="Guia anterior">
+                <input type="button" id="vid_nexttab" value="Próxima guia">
+            </div>
         </div>
     </div>
 
-    <div>
+    <div class="sect">
         <h2>Volume sistema:</h2>
-        <div>
+        <div class="divis">
             <p>volume geral:</p>
             <div>
                 <input id="vol_globalvalval" min="-96" max="0" type="range">
@@ -75,7 +82,7 @@
                 <input id="vol_globalMinF" type="button" value="Minimo opc2">
             </div>
         </div>
-        <div>
+        <div class="divis">
             <p>volume por aplicativo:</p>
             <div>
                 <input id="vol_indvvalval" min="0" max="1" step="0.01" type="range">

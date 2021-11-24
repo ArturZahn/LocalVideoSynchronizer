@@ -4,8 +4,11 @@ $(document).ready(()=>{
     $("#vid_link").change(linkChanged)
 
     $("#vid_play").click(()=>{
-        sendCmd(2, {act: "p"});
+        sendCmd(2, {act: "k"});
     });
+    // $("#vid_play").click(()=>{
+    //     sendCmd(2, {act: "p"});
+    // });
     $("#vid_esc").click(()=>{
         sendCmd(2, {act: "e"});
     });
@@ -15,8 +18,8 @@ $(document).ready(()=>{
     $("#vid_fullscreen").click(()=>{
         sendCmd(2, {act: "f"});
     });
-    $("#vid_pbf").click(()=>{
-        sendCmd(2, {act: "epbf"});
+    $("#vid_ekbf").click(()=>{
+        sendCmd(2, {act: "ekbf"});
     });
 
 

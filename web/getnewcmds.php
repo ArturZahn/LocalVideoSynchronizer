@@ -2,6 +2,10 @@
 
 include("./conexao.php");
 
+// first of all, remove old commands from database
+mysqli_query($con, "CALL deleteOldCmds;");
+
+
 if(empty($_GET["id"]))
 {
     // if id was not provided, return error
@@ -11,7 +15,8 @@ if(empty($_GET["id"]))
 }
 $id = $_GET["id"];
 
-$q = mysqli_query($con, "SELECT `cmd_cod`, `numb`, `opt` FROM `cmd` WHERE `cmd_cod` NOT IN ( SELECT `cmd_cod` FROM `cmd_executed` WHERE `id` = $id )");
+$qstr = "SELECT `cmd_cod`, `numb`, `opt` FROM `cmd` WHERE `cmd_cod` NOT IN ( SELECT `cmd_cod` FROM `cmd_executed` WHERE `id` = $id )";
+$q = mysqli_query($con, $qstr);
 
 $cmds = [];
 
