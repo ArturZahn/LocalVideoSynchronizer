@@ -14,6 +14,7 @@ import time
 import socket
 import json
 import os
+import traceback
 
 from pynput.keyboard import Key, Controller
 from pprint import pp, pprint
@@ -151,14 +152,38 @@ def exec_cmd(cmd):
                 kt("k")
             elif(c == "f"):
                 kt("f")
-            elif(c == "b"):
-                kt("0")
             elif(c == ">"):
                 kt(Key.right)
             elif(c == "<"):
                 kt(Key.left)
             elif(c == "e"):
                 kt(Key.esc)
+            elif(c == "5"):
+                kt(Key.f5)
+            elif(c == "+"):
+                kt(Key.up)
+            elif(c == "-"):
+                kt(Key.down)
+            elif(c == "0"):
+                kt("0")
+            elif(c == "1"):
+                kt("1")
+            elif(c == "2"):
+                kt("2")
+            elif(c == "3"):
+                kt("3")
+            elif(c == "4"):
+                kt("4")
+            elif(c == "s"):
+                kt("5")
+            elif(c == "6"):
+                kt("6")
+            elif(c == "7"):
+                kt("7")
+            elif(c == "8"):
+                kt("8")
+            elif(c == "9"):
+                kt("9")
     elif numb == "3":
         mode = opt["mode"]
         if mode == "1":
@@ -241,22 +266,26 @@ config_save()
 ############################### main loop ###############################
 
 while(True):
-    r2 = requests.get(url = s("getnewcmds.php"), params = {"id": config["id"]})
-
-    if r2.status_code != 200:
-        raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
-
     try:
-        data = r2.json()
-    except:
-        raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
+        r2 = requests.get(url = s("getnewcmds.php"), params = {"id": config["id"]})
 
-    for cmd in data:
+        if r2.status_code != 200:
+            raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
+
         try:
-            exec_cmd(cmd)
-        except ValueError:
-            print("Got errer"+str(ValueError))
+            data = r2.json()
+        except:
+            raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
 
-    time.sleep(0.05)
+        for cmd in data:
+            try:
+                exec_cmd(cmd)
+            except Exception as e:
+                print("Got error executing command:\n"+traceback.format_exc())
+
+        time.sleep(0.05)
+        
+    except Exception as e:
+        print("Got error in main loop:\n"+traceback.format_exc())
 
 #########################################################################

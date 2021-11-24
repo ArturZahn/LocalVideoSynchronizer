@@ -12,14 +12,55 @@ $(document).ready(()=>{
     $("#vid_esc").click(()=>{
         sendCmd(2, {act: "e"});
     });
+    $("#vid_f5").click(()=>{
+        sendCmd(2, {act: "5"});
+    });
     $("#vid_begining").click(()=>{
-        sendCmd(2, {act: "b"});
+        sendCmd(2, {act: "0"});
     });
     $("#vid_fullscreen").click(()=>{
         sendCmd(2, {act: "f"});
     });
     $("#vid_ekbf").click(()=>{
         sendCmd(2, {act: "ekbf"});
+    });
+    
+    $("#vid_volDown").click(()=>{
+        sendCmd(2, {act: "-"});
+    });
+    $("#vid_volUp").click(()=>{
+        sendCmd(2, {act: "+"});
+    });
+    
+    $("#vid_go0").click(()=>{
+        sendCmd(2, {act: "0"});
+    });
+    $("#vid_go1").click(()=>{
+        sendCmd(2, {act: "1"});
+    });
+    $("#vid_go2").click(()=>{
+        sendCmd(2, {act: "2"});
+    });
+    $("#vid_go3").click(()=>{
+        sendCmd(2, {act: "3"});
+    });
+    $("#vid_go4").click(()=>{
+        sendCmd(2, {act: "4"});
+    });
+    $("#vid_go5").click(()=>{
+        sendCmd(2, {act: "s"});
+    });
+    $("#vid_go6").click(()=>{
+        sendCmd(2, {act: "6"});
+    });
+    $("#vid_go7").click(()=>{
+        sendCmd(2, {act: "7"});
+    });
+    $("#vid_go8").click(()=>{
+        sendCmd(2, {act: "8"});
+    });
+    $("#vid_go9").click(()=>{
+        sendCmd(2, {act: "9"});
     });
 
 
@@ -47,6 +88,8 @@ $(document).ready(()=>{
     $("#vol_indvMin").click(()=>{
         sendCmd(3, {mode: 8});
     });
+
+    
 
     $("#vid_forward").click(forwardclicked);
     $("#vid_temp").change(tempchanged);

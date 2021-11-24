@@ -14,6 +14,7 @@ import time
 import socket
 import json
 import os
+import traceback
 
 from pynput.keyboard import Key, Controller
 from pprint import pp, pprint
@@ -241,19 +242,26 @@ config_save()
 ############################### main loop ###############################
 
 while(True):
-    r2 = requests.get(url = s("getnewcmds.php"), params = {"id": config["id"]})
-
-    if r2.status_code != 200:
-        raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
-
     try:
-        data = r2.json()
-    except:
-        raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
+        r2 = requests.get(url = s("getnewcmds.php"), params = {"id": config["id"]})
 
-    for cmd in data:
-        exec_cmd(cmd)
+        if r2.status_code != 200:
+            raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
 
-    time.sleep(0.05)
+        try:
+            data = r2.json()
+        except:
+            raise Exception("error in getnewcmds request: ("+str(r2.status_code)+") "+ repr(r2.content))
+
+        for cmd in data:
+            try:
+                exec_cmd(cmd)
+            except Exception as e:
+                print("Got error executing command:\n"+traceback.format_exc())
+
+        time.sleep(0.05)
+        
+    except Exception as e:
+        print("Got error in main loop:\n"+traceback.format_exc())
 
 #########################################################################

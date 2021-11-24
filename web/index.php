@@ -34,9 +34,26 @@
         <div>
             <input type="button" id="vid_fullscreen" value="Tela cheia">
             <input type="button" id="vid_esc" value="Esc">
+            <input type="button" id="vid_f5" value="Recarregar">
         </div>
         <div>
             <input type="button" id="vid_ekbf" value="Esc + Pause + tela cheia + comeco">
+        </div>
+        <div>
+            <input type="button" id="vid_volDown" value="Diminuir volume">
+            <input type="button" id="vid_volUp" value="Aumentar volume">
+        </div>
+        <div>
+            <input type="button" id="vid_go0" value="0">
+            <input type="button" id="vid_go1" value="1">
+            <input type="button" id="vid_go2" value="2">
+            <input type="button" id="vid_go3" value="3">
+            <input type="button" id="vid_go4" value="4">
+            <input type="button" id="vid_go5" value="5">
+            <input type="button" id="vid_go6" value="6">
+            <input type="button" id="vid_go7" value="7">
+            <input type="button" id="vid_go8" value="8">
+            <input type="button" id="vid_go9" value="9">
         </div>
         <div class="divis">
             <div>Avançar video:</div>
