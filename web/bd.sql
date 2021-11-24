@@ -34,7 +34,7 @@ DELIMITER //
 CREATE PROCEDURE `deleteOldCmds` ()
 BEGIN
 
-		SET @oldCmdList = (SELECT GROUP_CONCAT(cmd_cod) FROM cmd WHERE dt_created < DATE_ADD(NOW(),INTERVAL -2 SECOND));
+		SET @oldCmdList = (SELECT GROUP_CONCAT(cmd_cod) FROM cmd WHERE dt_created < DATE_ADD(NOW(),INTERVAL -10 SECOND));
 		
 		DELETE FROM cmd_executed WHERE FIND_IN_SET(cmd_cod, @oldCmdList) > 0;
 		DELETE FROM cmd WHERE FIND_IN_SET(cmd_cod, @oldCmdList) > 0;

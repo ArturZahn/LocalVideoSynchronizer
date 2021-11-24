@@ -111,5 +111,17 @@
             </div>
         </div>
     </div>
+    <br><br><br><br>
+    
+    <div class="sect">
+        <h2>Script:</h2>
+        <div class="divis">
+            <p>Use para atualizar e recarregar o script em cada maquina</p>
+            <div>
+                <input id="spt_update" type="button" value="Atualizar">
+                <!-- <input id="spt_reload" type="button" value="Reiniciar"> -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>

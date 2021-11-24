@@ -5,7 +5,7 @@ from __future__ import print_function
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume, ISimpleAudioVolume
-import subprocess
+# import subprocess
 import win32api
 # packages to control audio ↑↑
 
@@ -15,7 +15,10 @@ import socket
 import json
 import os
 import traceback
+# import shutil
 
+
+# other libraries
 from pynput.keyboard import Key, Controller
 from pprint import pp, pprint
 import requests
@@ -30,7 +33,7 @@ configPath = "config.json"
 config = {
     "id": 0,
     "lastConnDate": "",
-    "serverpage": "http://192.168.0.101/localvideosynchronizer/web/",
+    "serverpage": "http://10.68.37.12/localvideosynchronizer/web/",
     "ip_default_numb": 0
 }
 
@@ -237,6 +240,15 @@ def exec_cmd(cmd):
                 kt(Key.page_up)
                 ku(Key.ctrl)
     # elif numb == "5":
+    #     for c in opt['act']:
+    #         if(c == "u"):
+
+    #             # shutil.copyfile("src_file", "dest_file", *, follow_symlinks=True)
+    #             # shutil.copy2('/update.bat', '../update.bat')
+    #             # shutil.copyfile('/update.bat', '../update.bat', *, follow_symlinks=True)
+    #             # shutil.copyfile("\python\source\update.bat", 'update2.bat')
+    #             os.popen("copy /python/source/update.bat update2.bat")
+                
 
 
 

@@ -29,3 +29,9 @@
         "c": close tab
         ">": go to next tab
         "<": go to previous tab
+
+5(act)
+    act → string which each letter represent an action
+    actions:
+        "u": update
+        "r": reload script

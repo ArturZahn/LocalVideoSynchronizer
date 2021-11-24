@@ -113,6 +113,10 @@ $(document).ready(()=>{
     $("#vid_nexttab").click(()=>{
         sendCmd(4, {act: ">"})
     });
+
+    $("#spt_update").click(()=>{
+        sendCmd(5, {act: "u"})
+    })
 });
 
 

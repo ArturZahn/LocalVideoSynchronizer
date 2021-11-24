@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['localvideosynchronizer.py'],
-             pathex=['C:\\xampp\\htdocs\\LocalVideoSynchronizer\\python\\compiling_folder'],
+             pathex=[],
              binaries=[],
              datas=[],
              hiddenimports=['__future__', 'ctypes', 'comtypes', 'pycaw', 'subprocess', 'win32api', 'pynput', 'pprint', 'requests', 'webbrowser'],
