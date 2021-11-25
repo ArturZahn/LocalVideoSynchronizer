@@ -29,8 +29,6 @@ CREATE TABLE `cmd_executed` (
 
 DELIMITER //
 
-
-
 CREATE PROCEDURE `deleteOldCmds` ()
 BEGIN
 

@@ -239,7 +239,13 @@ def exec_cmd(cmd):
                 kd(Key.ctrl)
                 kt(Key.page_up)
                 ku(Key.ctrl)
-    # elif numb == "5":
+    elif numb == "5":
+        for c in opt['act']:
+            if(c == "+"):
+                kt(Key.media_volume_down)
+            elif(c == "-"):
+                kt(Key.media_volume_up)
+    # elif numb == "6":
     #     for c in opt['act']:
     #         if(c == "u"):
 

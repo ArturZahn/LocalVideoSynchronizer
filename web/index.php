@@ -84,7 +84,11 @@
 
     <div class="sect">
         <h2>Volume sistema:</h2>
-        <div class="divis">
+        <div>
+            <input id="vol_down" type="button" value="Diminuir">
+            <input id="vol_up" type="button" value="Aumentar">
+        </div>
+        <!-- <div class="divis">
             <p>volume geral:</p>
             <div>
                 <input id="vol_globalvalval" min="-96" max="0" type="range">
@@ -109,7 +113,7 @@
                 <input id="vol_indvMax" type="button" value="Maximo">
                 <input id="vol_indvMin" type="button" value="Minimo">
             </div>
-        </div>
+        </div> -->
     </div>
     <br><br><br><br>
     
