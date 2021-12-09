@@ -128,5 +128,16 @@
             </div>
         </div>
     </div>
+
+    <div class="sect">
+        <h2>Goose Desktop:</h2>
+        <div class="divis">
+            <div>
+                <input id="goose_new" type="button" value="Adicionar">
+                <input id="goose_closeOne" type="button" value="Fechar um">
+                <input id="goose_closeAll" type="button" value="Fechar todos">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

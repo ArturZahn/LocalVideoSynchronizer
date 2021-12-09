@@ -114,6 +114,16 @@ $(document).ready(()=>{
         sendCmd(4, {act: ">"})
     });
 
+    
+    $("#goose_new").click(()=>{
+        sendCmd(5, {act: "n"})
+    });
+    $("#goose_closeOne").click(()=>{
+        sendCmd(5, {act: "o"})
+    });
+    $("#goose_closeAll").click(()=>{
+        sendCmd(5, {act: "c"})
+    });
     $("#spt_update").click(()=>{
         sendCmd(5, {act: "u"})
     })

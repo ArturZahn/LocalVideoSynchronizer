@@ -16,10 +16,10 @@ import socket
 import json
 import os
 import traceback
-# import shutil
+import signal
+import subprocess
 
-
-# other libraries
+# installed libraries
 from pynput.keyboard import Key, Controller
 from pprint import pp, pprint
 import requests
@@ -290,22 +290,16 @@ def exec_cmd(cmd):
                 ku(Key.ctrl)
     elif numb == "5":
         for c in opt['act']:
-            if(c == "+"):
+            if(c == "n"):
+                newGoose()
+            elif(c == "o"):
+                closeOne()
+            elif(c == "c"):
+                closeAll()
+            elif(c == "+"):
                 kt(Key.media_volume_down)
             elif(c == "-"):
                 kt(Key.media_volume_up)
-    # elif numb == "6":
-    #     for c in opt['act']:
-    #         if(c == "u"):
-
-    #             # shutil.copyfile("src_file", "dest_file", *, follow_symlinks=True)
-    #             # shutil.copy2('/update.bat', '../update.bat')
-    #             # shutil.copyfile('/update.bat', '../update.bat', *, follow_symlinks=True)
-    #             # shutil.copyfile("\python\source\update.bat", 'update2.bat')
-    #             os.popen("copy /python/source/update.bat update2.bat")
-                
-
-
 
 
 ######## makes the first connection to the server to get its ID ########
