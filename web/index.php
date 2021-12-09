@@ -12,6 +12,7 @@
     
 </head>
 <body>
+    <a href="./actions.php">ver acoes</a>
     <div class="sect">
         <h2>Video:</h2>
         <div class="divis">

@@ -2,6 +2,7 @@
 
 # packages to control audio ↓↓
 from __future__ import print_function
+# from _typeshed import SupportsItemAccess
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume, ISimpleAudioVolume
@@ -57,6 +58,54 @@ if not os.path.isfile(configPath):
     config_save()
 
 config_load()
+
+########################################################################
+
+def startProcess(exeFilePath):
+    p = subprocess.Popen(exeFilePath)
+    # print(p.pid) # the pid
+    return p.pid
+    # os.kill(p.pid, signal.SIGTERM) #or signal.SIGKILL 
+
+gooses = []
+def newGoose():
+    print("newGoose")
+    # os.startfile("assets\\a.bat")
+    # os.startfile("assets\\DesktopGoose v0.3\\a.bat")
+    
+    # os.startfile("assets\\DesktopGoose v0.3\\GooseDesktop.exe")
+
+
+    goosePID = startProcess("assets\\DesktopGoose v0.3\\GooseDesktop.exe")
+    
+    global gooses
+    gooses.append(goosePID)
+
+def closeOne():
+    global gooses
+    print("closeOne")
+    
+    loop = True
+    while(loop):
+        loop = False
+        if(len(gooses) > 0):
+            try:
+                os.kill(gooses[0], signal.SIGTERM) #or signal.SIGKILL 
+            except:
+                loop = True
+                
+            gooses = gooses[1:]
+
+
+def closeAll():
+    print("closeAll")
+    
+    global gooses
+    gooses = []
+    os.startfile("assets\\closegoose.vbs")
+
+    
+
 
 ########################################################################
 
